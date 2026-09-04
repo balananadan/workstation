@@ -48,7 +48,7 @@ output "ip" {
 }
 
 data "azurerm_subnet" "default" {
-  name                 = "vnet-denmarkeast-2"
+  name                 = "vnet-denmarkeast-1"
   virtual_network_name = "workstation-vnet"
   resource_group_name  = "Nothing"
 }
