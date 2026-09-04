@@ -32,13 +32,13 @@ resource "null_resource" "ip_manage" {
   depends_on = [azurerm_public_ip.workstation]
 
   provisioner "local-exec" {
-    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation409_z1 --name ipconfig1 --public-ip-address workstation-public-ip"
+    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation132 --name ipconfig1 --public-ip-address workstation-public-ip"
   }
 
 
   provisioner "local-exec" {
     when    = "destroy"
-    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation409_z1 --name ipconfig1 --public-ip-address null"
+    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation132 --name ipconfig1 --public-ip-address null"
   }
 
 }
