@@ -1,6 +1,6 @@
 common:
 	git pull
-	rm -f .terraform/terraform.tfstate
+	#rm -f .terraform/terraform.tfstate
 
 apply: common
 	terraform init
