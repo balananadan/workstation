@@ -9,13 +9,13 @@ resource "null_resource" "vm_manage" {
 
   provisioner "local-exec" {
     #when = "create" # This line is optional as it's the default
-    command = "az vm start --resource-group Nothing --name workstation;az vm start --resource-group Nothing --name github-runner"
+    command = "az vm start --resource-group Nothing --name workstation"
   }
 
 
   provisioner "local-exec" {
-    when    = "destroy"
-    command = "az vm stop --resource-group Nothing --name workstation ; az vm deallocate --resource-group Nothing --name workstation;az vm stop --resource-group Nothing --name github-runner ; az vm deallocate --resource-group Nothing --name github-runner"
+    when    = destroy
+    command = "az vm stop --resource-group Nothing --name workstation ; az vm deallocate --resource-group Nothing --name workstation"
   }
 
 }
