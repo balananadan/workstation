@@ -14,8 +14,8 @@ resource "null_resource" "vm_manage" {
 
 
   provisioner "local-exec" {
-    when    = destroy
-    command = "az vm stop --resource-group Nothing --name workstation ; az vm deallocate --resource-group Nothing --name workstation"
+    when    = "destroy"
+    command = "az vm stop --resource-group Nothing --name workstation ; az vm deallocate --resource-group Nothing --name workstation "
   }
 
 }
@@ -32,13 +32,13 @@ resource "null_resource" "ip_manage" {
   depends_on = [azurerm_public_ip.workstation]
 
   provisioner "local-exec" {
-    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation132 --name ipconfig1 --public-ip-address workstation-public-ip"
+    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation448 --name ipconfig1 --public-ip-address workstation-public-ip"
   }
 
 
   provisioner "local-exec" {
     when    = "destroy"
-    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation132 --name ipconfig1 --public-ip-address null"
+    command = "az network nic ip-config update --resource-group Nothing --nic-name workstation448 --name ipconfig1 --public-ip-address null"
   }
 
 }
@@ -48,8 +48,8 @@ output "ip" {
 }
 
 data "azurerm_subnet" "default" {
-  name                 = "snet-denmarkeast-1"
-  virtual_network_name = "vnet-denmarkeast-2"
+  name                 = "default"
+  virtual_network_name = "Not"
   resource_group_name  = "Nothing"
 }
 
