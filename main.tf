@@ -37,7 +37,7 @@ resource "null_resource" "ip_manage" {
 
 
   provisioner "local-exec" {
-    when    = "destroy"
+    when    = destroy
     command = "az network nic ip-config update --resource-group Nothing --nic-name workstation626 --name ipconfig1 --public-ip-address null"
   }
 
