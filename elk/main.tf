@@ -14,7 +14,7 @@ resource "null_resource" "elk_vm_manage" {
 
 
   provisioner "local-exec" {
-    when    = "destroy"
+    when    = destroy
     command = "az vm stop --resource-group Nothing --name elk ; az vm deallocate --resource-group Nothing --name elk"
   }
 
